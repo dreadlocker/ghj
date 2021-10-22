@@ -50,9 +50,9 @@ app.use('/favicon.ico', express.static(path.join(__dirname, 'favicon.ico')));
 app.use(cors({
   // // for local test
   // "origin": "http://localhost:8080",
-  // "origin": "*",
+  "origin": "*",
   // FOR PRODUCTION
-  "origin": "https://bqla.github.io/",
+  // "origin": "https://bqla.github.io/",
   "methods": "GET,PUT,POST,DELETE",
   "preflightContinue": false,
 }));
