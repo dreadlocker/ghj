@@ -45,6 +45,7 @@ app.use(compression());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ storage, fileFilter }).single('image'));
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/favicon.ico', express.static(path.join(__dirname, 'favicon.ico')));
 
 app.use(cors({
   // // for local test
@@ -57,9 +58,9 @@ app.use(cors({
   "preflightContinue": false,
 }));
 
-app.use('/api', categoriesRoutes);
-app.use('/api', productsRoutes);
-app.use('/api', usersRoutes);
+app.use('/', categoriesRoutes);
+app.use('/', productsRoutes);
+app.use('/', usersRoutes);
 
 mongoConnect(() => {
   // https.createServer({
