@@ -36,8 +36,8 @@ const fileFilter = (req, file, cb) => {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const privateKey = fs.readFileSync('server.key')
-const certificate = fs.readFileSync('server.cert')
+// const privateKey = fs.readFileSync('server.key')
+// const certificate = fs.readFileSync('server.cert')
 
 app.use(helmet());
 app.use(compression());
@@ -45,13 +45,14 @@ app.use(compression());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ storage, fileFilter }).single('image'));
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/favicon.ico', express.static(path.join(__dirname, 'favicon.ico')));
 
 app.use(cors({
   // // for local test
   // "origin": "http://localhost:8080",
-  "origin": "*",
-  // // FOR PRODUCTION
-  // "origin": "https://bqla.github.io/tehnika/",
+  // "origin": "*",
+  // FOR PRODUCTION
+  "origin": "https://bqla.github.io/tehnika/",
   "methods": "GET,PUT,POST,DELETE",
   "preflightContinue": false,
 }));
