@@ -56,9 +56,9 @@ app.use(cors({
   "preflightContinue": false,
 }));
 
-app.use('/api', categoriesRoutes);
-app.use('/api', productsRoutes);
-app.use('/api', usersRoutes);
+app.use('/', categoriesRoutes);
+app.use('/', productsRoutes);
+app.use('/', usersRoutes);
 
 mongoConnect(() => {
   // https.createServer({
