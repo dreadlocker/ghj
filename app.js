@@ -49,9 +49,9 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(cors({
   // // for local test
   // "origin": "http://localhost:8080",
-  // "origin": "*",
-  // FOR PRODUCTION
-  "origin": "https://bqla.github.io/tehnika/",
+  "origin": "*",
+  // // FOR PRODUCTION
+  // "origin": "https://bqla.github.io/tehnika/",
   "methods": "GET,PUT,POST,DELETE",
   "preflightContinue": false,
 }));
