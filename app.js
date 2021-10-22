@@ -52,7 +52,7 @@ app.use(cors({
   // "origin": "http://localhost:8080",
   // "origin": "*",
   // FOR PRODUCTION
-  "origin": "https://bqla.github.io/tehnika/",
+  "origin": "https://bqla.github.io/",
   "methods": "GET,PUT,POST,DELETE",
   "preflightContinue": false,
 }));
