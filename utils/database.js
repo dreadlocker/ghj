@@ -5,7 +5,7 @@ let _db;
 
 export const mongoConnect = (callback) => {
   MongoClient
-    .connect('mongodb+srv://Zak:Asdlkjasd1@shop.1y8xd.mongodb.net/store?retryWrites=true&w=majority')
+    .connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@shop.1y8xd.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
     .then(client => {
       _db = client.db();
       callback()
