@@ -20,8 +20,8 @@ const createProduct = async (req, res) => {
 
   // Check if 'text' is sent or 'image'
   if (body.length > 0) {
-    const { category, brandName, price } = JSON.parse(body[0])
-    const product = new Product(category, brandName, price)
+    const { category, brandName, price, imageUrl } = JSON.parse(body[0])
+    const product = new Product(category, brandName, price, imageUrl)
 
     try {
       const data = await product.save()
@@ -36,21 +36,21 @@ const createProduct = async (req, res) => {
       return res.status(400).json({ message })
     }
   } else {
-    const data = await Product.getAll()
-    const products = data.products
-    const lastItem = products[products.length - 1]
+    // const data = await Product.getAll()
+    // const products = data.products
+    // const lastItem = products[products.length - 1]
 
-    if (lastItem.imageUrl === null) {
-      const productId = lastItem._id.toString()
-      const { brandName, price } = lastItem
-      const imageUrl = req.file.path.replace('\\', '/')
-      const products = await Product.updateById(productId, brandName, price, imageUrl)
-      return res.status(201).json(products)
-    } else {
-      const err = 'Already has an image!'
-      console.log(err)
-      throw new Error(err)
-    }
+    // if (lastItem.imageUrl === null) {
+    //   const productId = lastItem._id.toString()
+    //   const { brandName, price } = lastItem
+    //   const imageUrl = req.file.path.replace('\\', '/')
+    //   const products = await Product.updateById(productId, brandName, price, imageUrl)
+    //   return res.status(201).json(products)
+    // } else {
+    //   const err = 'Already has an image!'
+    //   console.log(err)
+    //   throw new Error(err)
+    // }
   }
 }
 

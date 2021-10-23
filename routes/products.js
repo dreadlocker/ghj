@@ -3,14 +3,14 @@ import productControllers from '../controllers/products.js';
 
 export const productsRoutes = express.Router();
 
-// GET /api/products
+// GET /products
 productsRoutes.get('/products', productControllers.getProducts)
 
-// POST /api/products
+// POST /products
 productsRoutes.post('/products', productControllers.createProduct)
 
-// DELETE /api/products/:productId
+// DELETE /products/:productId
 productsRoutes.delete('/products/:productId', productControllers.deleteProduct)
 
-// PUT /api/products
+// PUT /products
 productsRoutes.put('/products/:productId', productControllers.updateProduct)

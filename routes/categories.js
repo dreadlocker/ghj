@@ -3,11 +3,11 @@ import categoriesControllers from '../controllers/categories.js';
 
 export const categoriesRoutes = express.Router();
 
-// GET /api/categories
+// GET /categories
 categoriesRoutes.get('/categories', categoriesControllers.getCategories)
 
-// POST /api/categories
+// POST /categories
 categoriesRoutes.post('/categories', categoriesControllers.createCategory)
 
-// DELETE /api/categories
+// DELETE /categories
 categoriesRoutes.delete('/categories', categoriesControllers.deleteAllCategories)

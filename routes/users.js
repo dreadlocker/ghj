@@ -3,8 +3,8 @@ import usersControllers from '../controllers/users.js';
 
 export const usersRoutes = express.Router();
 
-// GET /api/user
+// GET /user
 usersRoutes.get('/users', usersControllers.getUser)
 
-// POST /api/user
+// POST /user
 usersRoutes.post('/users', usersControllers.createUser)
